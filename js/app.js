@@ -1,13 +1,20 @@
-'use strict'
-// Create a "close" button and append it to each list item
+'use strict';
+// Event Listener for "Add to List"
+const myForm = document.getElementById("myForm");
+myForm.addEventListener("submit", newListItem);
 
-// Click on a close button to hide the current list item
+const listArray = [];
 
+// Event Handler for "Add to List"
+function newListItem(event){
+  event.preventDefault();
 
-// Add a "checked" symbol when clicking on a list item
+  let newItem = document.getElementById("newInput").value;
+  listArray.push(newItem);
 
+  let unorderedList = document.getElementById("list");
+  let listItem = document.createElement("li");
 
-// Create a new list item when clicking on the "Add" button
-
-
-// Create a new favorite item when clicking on the "Add to Favorites" button
+  listItem.appendChild(document.createTextNode(listArray[listArray.length - 1]));
+  unorderedList.appendChild(listItem);
+}
